@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Pinboard</h1>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+    </nav>
+  </header>
+
+  
+<main>
+  <h2>Your inspiration, organized.</h2>
+  <p>Save your favorite photos and ideas.</p>
+
+  <section class="add-pin">
+    <h3>Add a New Pin</h3>
+
+    <form action="/pins" method="POST">
+
+      <label for="imageUrl">Photo URL</label>
+      <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/photo.jpg" required >
+
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="">Select a category</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Home Decor">Home Decor</option>
+        <option value="Food">Food</option>
+        <option value="Beauty">Beauty</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="itemName">Item Name</label>
+      <input type="text"  id="itemName"  name="itemName"  placeholder="Oversized Blazer"  required >
+
+      <label for="color">Item Color</label>
+      <input  type="text"  id="color"  name="color"  placeholder="Beige"  required>
+
+      <label for="tags">Tags</label>
+      <input type="text"  id="tags" name="tags" placeholder="minimalist, fall, outfits">
+
+      <button type="submit">Save Pin</button>
+
+    </form>
+  </section>
+
+  <section>
+    <h3>My Pins</h3>
+    <p>Your saved pins will appear here.</p>
+  </section>
+</main>
+
+
+</body>
+</html>
