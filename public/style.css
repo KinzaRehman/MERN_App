@@ -1,87 +1,461 @@
+/* root colors for pintrest */ 
+:root {
+    --primary: #b23a48;
+    --primary-hover: #902d39;
+    --background: #faf9f6;
+    --white: #ffffff;
+    --text: #242424;
+    --muted: #666666;
+    --border: #dddddd;
+    --light: #eeeeee;
+    --error-bg: #fff0f0;
+    --error-text: #a22b38;
+    --error-border: #efc5c5;
+}
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #faf9f6;
-  color: #242424;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 6%;
-  background: white;
-  border-bottom: 1px solid #e8e8e8;
+/* HEADER */
+
+header,
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 3%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
 }
 
-header h1 {
-  color: #b23a48;
-  margin: 0;
+header h1,
+.page-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.page-header p {
+    margin: 0;
+    font-size: 13px;
 }
 
 nav {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 15px;
 }
 
 nav a {
-  color: #333;
-  text-decoration: none;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
 }
 
+nav a:hover {
+    color: var(--primary);
+}
+
+.page-header button {
+    padding: 8px 14px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* LANDING PAGE */
+
+.welcome {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.welcome h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.welcome-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.welcome-button:hover {
+    background: var(--primary-hover);
+}
+
+.welcome-link {
+    margin-left: 15px;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+.explore-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* SAMPLE PIN GRID */
+
+.landing-pins {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.landing-pins img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.landing-pins img:hover {
+    opacity: 0.9;
+}
+
+
+
+/* MAIN */
+
 main {
-  padding: 50px 6%;
+    padding: 20px 3%;
 }
 
 main h2 {
-  font-size: 32px;
+    font-size: 24px;
+    margin: 0 0 8px;
 }
 
+/* ADD PIN */
 
 .add-pin {
-  max-width: 500px;
-  margin: 30px 0;
-  padding: 25px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.add-pin h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
 }
 
 .add-pin form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
 }
 
 .add-pin label {
-  font-weight: bold;
-  font-size: 14px;
+    font-size: 13px;
+    font-weight: bold;
+    align-self: end;
 }
 
 .add-pin input,
 .add-pin select {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-pin label[for="imageUrl"],
+.add-pin #imageUrl {
+    grid-column: 1 / -1;
+}
+
+.add-pin label[for="tags"] {
+    grid-column: 1;
+}
+
+.add-pin #tags {
+    grid-column: 2;
+}
+.add-pin button {
+    grid-column: 2;
+    width: 100%;
+    margin-top: 0;
 }
 
 .add-pin button {
-  margin-top: 10px;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #b23a48;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
+    padding: 10px;
+    margin-top: 5px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .add-pin button:hover {
-  background: #902d39;
+    background: var(--primary-hover);
+}
+
+#cancel-button {
+    background: var(--light);
+    color: var(--text);
+}
+
+#cancel-button[hidden] {
+    display: none;
+}
+
+/* MY PINS */
+
+.pins-section {
+    width: 100%;
+    padding: 10px 3% 25px;
+}
+
+.pins-section h2 {
+    font-size: 22px;
+    margin: 5px 0 15px;
+    text-align: center;
+}
+
+.pins-section > p {
+    text-align: center;
+    color: var(--muted);
+}
+
+.pins {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 15px;
+}
+
+/* PIN CARDS */
+
+.pin {
+    min-width: 0;
+    padding: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.pin img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: var(--light);
+}
+
+.pin h3 {
+    font-size: 16px;
+    margin: 10px 0 6px;
+}
+
+.pin p {
+    font-size: 13px;
+    margin: 5px 0;
+    color: var(--muted);
+}
+
+/* PIN BUTTONS */
+
+.pin button {
+    padding: 7px 12px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.edit-button:hover {
+    background: var(--primary-hover);
+}
+
+.delete-button {
+    background: var(--light);
+    color: var(--text);
+}
+
+.delete-button:hover {
+    background: var(--border);
+}
+
+/* LOGIN AND SIGNUP */
+
+.auth-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 35px auto;
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.auth-container h2 {
+    font-size: 24px;
+    margin: 0 0 8px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.auth-container > p {
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 14px;
+    background: var(--white);
+}
+
+.form-group input:focus {
+    outline: 1px solid var(--primary);
+    border-color: var(--primary);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 5px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background: var(--primary-hover);
+}
+
+.auth-links {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.auth-links p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.auth-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* ERROR MESSAGES */
+
+.alert-danger {
+    padding: 10px;
+    margin-bottom: 12px;
+    background: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-border);
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+/* OLD PAGE CONTAINERS */
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.jumbotron {
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    header,
+    .page-header {
+        flex-wrap: wrap;
+    }
+
+    .add-pin form {
+        grid-template-columns: 1fr;
+    }
+
+    .add-pin label,
+    .add-pin input,
+    .add-pin select {
+        grid-column: 1 / -1;
+    }
+
+    .pins {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .pin img {
+        height: 170px;
+    }
+
+    .auth-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
 }

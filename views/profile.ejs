@@ -1,69 +1,105 @@
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>21 Savage Fan Site</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pinboard</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <!-- PROFILE SECTION -->
+    <div class="page-header">
+        <h1>My Pinboard</h1>
+
+        <p>Logged in as: <%= user.local.email %></p>
+
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
     </div>
-hhh
-    <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+    <!-- ADD OR EDIT A PIN -->
+<section class="add-pin">
+    <h2 id="form-title">Add a Pin</h2>
 
-                <% if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
+    <form id="pin-form" action="/pins" method="POST">
 
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
+        <label for="imageUrl">Photo URL</label>
+        <input type="url" id="imageUrl" name="imageUrl" required>
 
-            </div>
-        </div>
-        <div class="col-sm-6">
-          <h3>Messages</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span class="name" data-user-id = "<%=messages[i]._id %>"><%= messages[i].name %></span>
-              <span class="msg"><%= messages[i].msg %></span>
-              <span class="thumbUp"><%= messages[i].thumbUp %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-    
-              <span><i class="fa fa-trash" aria-hidden="true">🧐</i></span>
-            </li>
-          <% } %>
-          </ul>
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            <option value="">Select a category</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Home Decor">Home Decor</option>
+            <option value="Food">Food</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Other">Other</option>
+        </select>
 
-          <h2>Add a message</h2>
-        <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+        <label for="itemName">Item Name</label>
+        <input type="text" id="itemName" name="itemName" required>
+
+        <label for="color">Item Color</label>
+        <input type="text" id="color" name="color" required>
+
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" name="tags">
+
+        <button type="submit" id="save-button">Save Pin</button>
+        <button type="button" id="cancel-button" hidden>Cancel Edit</button>
+
+    </form>
+</section>
+
+
+    <!-- DISPLAY SAVED PINS -->
+    <section class="pins-section">
+        <h2>My Pins</h2>
+
+        <% if (pins.length === 0) { %>
+            <p>You haven't saved any pins yet.</p>
         <% } %>
+
+        <div class="pins">
+
+            <% for (var i = 0; i < pins.length; i++) { %>
+
+                <div class="pin">
+
+                    <img src="<%= pins[i].imageUrl %>"
+                         alt="Saved pin">
+
+                    <h3><%= pins[i].itemName %></h3>
+
+                    <p>Category: <%= pins[i].category %></p>
+                    <p>Color: <%= pins[i].color %></p>
+
+                    <!-- EDIT PIN -->
+                    <button class="edit-button"
+                    data-id="<%= pins[i]._id %>"
+                    data-name="<%= pins[i].itemName %>"
+                    data-category="<%= pins[i].category %>"
+                    data-color="<%= pins[i].color %>"
+                    data-image="<%= pins[i].imageUrl %>"
+                    data-tags="<%= (pins[i].tags || []).join(', ') %>">Edit</button>
+
+                    <!-- DELETE PIN -->
+                    <button class="delete-button" data-id="<%= pins[i]._id %>">Delete </button>
+                </div>
+
+            <% } %>
+
+        </div>
+    </section>
 
 </div>
 
-<script src="main.js"></script>
+<script src="/main.js"></script>
 
 </body>
 </html>

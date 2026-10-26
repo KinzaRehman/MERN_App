@@ -2,66 +2,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinboard</title>
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinboard</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Pinboard</h1>
+    <header>
+        <h1>Pinboard</h1>
+        <nav>
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </nav>
+    </header>
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/login">Login</a>
-      <a href="/signup">Sign Up</a>
-    </nav>
-  </header>
+    <main>
+        
+        <div class="landing-pins">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=500" alt="Architecture">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Food">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=500" alt="Books">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Beach">
+            <img src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=500" alt="Flowers">
+        </div>
 
-  
-<main>
-  <h2>Your inspiration, organized.</h2>
-  <p>Save your favorite photos and ideas.</p>
+        <div class="welcome">
+            <h2>Your inspiration, organized.</h2>
+            <p>See something you love? Save it for later. Collect your favorite finds, organize ideas, and come back whenever you need inspiration.</p>
 
-  <section class="add-pin">
-    <h3>Add a New Pin</h3>
+            <a href="/signup" class="welcome-button">Get Started</a>
+            <a href="/login" class="welcome-link">Already have an account?</a>
+        </div>
 
-    <form action="/pins" method="POST">
+        <!-- SAMPLE PINS -->
+        <h2 class="explore-title">Find Your Inspiration</h2>
 
-      <label for="imageUrl">Photo URL</label>
-      <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/photo.jpg" required >
-
-      <label for="category">Category</label>
-      <select name="category" id="category" required>
-        <option value="">Select a category</option>
-        <option value="Fashion">Fashion</option>
-        <option value="Home Decor">Home Decor</option>
-        <option value="Food">Food</option>
-        <option value="Beauty">Beauty</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="itemName">Item Name</label>
-      <input type="text"  id="itemName"  name="itemName"  placeholder="Oversized Blazer"  required >
-
-      <label for="color">Item Color</label>
-      <input  type="text"  id="color"  name="color"  placeholder="Beige"  required>
-
-      <label for="tags">Tags</label>
-      <input type="text"  id="tags" name="tags" placeholder="minimalist, fall, outfits">
-
-      <button type="submit">Save Pin</button>
-
-    </form>
-  </section>
-
-  <section>
-    <h3>My Pins</h3>
-    <p>Your saved pins will appear here.</p>
-  </section>
-</main>
-
+        <div class="landing-pins">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=500" alt="Home decor">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500" alt="Fashion">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500" alt="Outfits">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500" alt="Flowers">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500" alt="Shopping">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500" alt="Bedroom">
+            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500" alt="Style">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500" alt="Travel">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=500" alt="Coffee">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=500" alt="Nature">
+        </div>
+    </main>
 
 </body>
 </html>

@@ -1,41 +1,54 @@
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>21 Savage Fan Site</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Account | Pinboard</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div class="container">
-<div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-user"></span> Add Local Account</h1>
+    <header>
+        <h1>Pinboard</h1>
+        <nav>
+            <a href="/profile">My Pins</a>
+        </nav>
+    </header>
 
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
+    <div class="auth-container">
 
-    <!-- LOGIN FORM -->
-    <form action="/connect/local" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
+        <h2>Add Local Account</h2>
+        <p>Connect an email and password to your account.</p>
+
+        <!-- DISPLAY ERRORS -->
+        <% if (message.length > 0) { %>
+            <div class="alert-danger">
+                <%= message %>
+            </div>
+        <% } %>
+
+        <!-- CONNECT LOCAL ACCOUNT FORM -->
+        <form action="/connect/local" method="POST">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="auth-button"> Add Local Account</button>
+        </form>
+
+        <div class="auth-links">
+            <p><a href="/profile">Back to My Pins</a></p>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
 
-        <button type="submit" class="btn btn-warning btn-lg">Add Local</button>
-    </form>
+    </div>
 
-    <hr>
-
-    <p><a href="/profile">Go back to profile</a></p>
-
-
-</div>
-</div>
 </body>
 </html>
