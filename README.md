@@ -5,7 +5,7 @@ My Pinboard is a fullstack web application that allows users to collect and orga
 Instead of having links scattered across different tabs or bookmarks, My Pinboard makes it easier to save and revisit them.
 
 ### Live Link
-[My Pinboard]("public/img/landing.png")
+[My Pinboard](https://mern-app-lp0v.onrender.com/)
 
 ### Image
 ![My Pinboard Screenshot](public/img/landing.png)
