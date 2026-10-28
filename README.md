@@ -1,4 +1,4 @@
-# MERN_App – My Pinboard
+# My Pinboard
 
 My Pinboard is a fullstack web application that allows users to collect and organize things they find interesting online. Whether it's inspiration, products, creative ideas, or useful resources, users can save links and images as pins to keep everything in one place.
 
